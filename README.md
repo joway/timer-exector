@@ -1,5 +1,8 @@
 # Timer Exector
 
+![npm](https://img.shields.io/npm/v/timer-exector.svg)
+![npm](https://img.shields.io/npm/dy/timer-exector.svg)
+
 ## Purpose
 
 Exec all events when hit the `maxQueueSize ` or `maxTimeWait` .
