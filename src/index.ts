@@ -2,8 +2,8 @@ import * as _ from 'lodash'
 import * as bluebird from 'bluebird'
 
 interface Options {
-  maxQueueSize?: number
-  maxTimeWait?: number // ms
+  maxQueueSize?: number // -1: disable queue size limit
+  maxTimeWait?: number // ms , -1 : disable time wait limit
 }
 
 const DEFAULT_OPTIONS = {
@@ -16,7 +16,6 @@ abstract class TimeExector {
   private cursor: number
   private alive: boolean
   private stopped: boolean
-  private forzen: boolean
 
   constructor(public options: Options = {}, ) {
     this.options = options
@@ -25,29 +24,16 @@ abstract class TimeExector {
 
     this.alive = true
     this.stopped = false
-    this.forzen = false
   }
 
   abstract async exec(events: any[]): Promise<boolean>
 
-  enqueue(event: any): boolean {
-    if (this.forzen) {
-      return false
-    }
+  enqueue(event: any) {
     this.buffer.push(event)
-    return true
   }
 
   start() {
     return this.loop()
-  }
-
-  freeze() {
-    this.forzen = true
-  }
-
-  unfreeze() {
-    this.forzen = false
   }
 
   stop() {
@@ -55,9 +41,6 @@ abstract class TimeExector {
   }
 
   async exit() {
-    // prevent to enqueue new event
-    this.freeze()
-
     this.stop()
     // check is stopped
     while (!this.stopped) {
