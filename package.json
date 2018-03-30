@@ -1,0 +1,41 @@
+{
+  "name": "timer-exector",
+  "version": "0.0.1",
+  "description": "Timer Exector Written in Typescript",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "compile": "tsc",
+    "clean": "rm -rf dist",
+    "purge": "rm -rf package-lock.json node_modules && npm run clean",
+    "build": "npm run clean && npm run compile",
+    "lint": "tslint --project .",
+    "test": "npm run lint && npm run compile && NODE_ENV=ci ava dist/tests",
+    "prettier": "prettier --config ./.prettierrc --write '{src,tests}/**/*.ts'"
+  },
+  "precommit": [
+    "prettier"
+  ],
+  "author": "joway",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "lodash": "4.17.5",
+    "source-map-support": "0.5.4"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.20",
+    "@types/lodash": "^4.14.106",
+    "@types/node": "8.0.46",
+    "@types/sinon": "2.3.6",
+    "@types/supertest": "2.0.3",
+    "ava": "0.24.0",
+    "nock": "9.0.24",
+    "nodemon": "1.12.1",
+    "precommit": "1.2.2",
+    "sinon": "4.0.1",
+    "supertest": "3.0.0",
+    "tslint": "5.9.1",
+    "tslint-jike-node": "0.0.14",
+    "typescript": "2.7.2"
+  },
+  "typescript-service-starter": "0.4.1"
+}
