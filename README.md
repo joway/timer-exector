@@ -1,7 +1,7 @@
 # Timer Exector
 
-![npm](https://img.shields.io/npm/v/timer-exector.svg)
-![npm](https://img.shields.io/npm/dy/timer-exector.svg)
+[![npm](https://img.shields.io/npm/v/timer-exector.svg)](https://www.npmjs.com/package/timer-exector)
+[![npm](https://img.shields.io/npm/dy/timer-exector.svg)](https://www.npmjs.com/package/timer-exector)
 
 ## Purpose
 
@@ -10,6 +10,12 @@ Exec all events when hit the `maxQueueSize ` or `maxTimeWait` .
 You can extends class `TimeExector` and implement `exec(events: any[]){}` method .
 
 ## Usage
+
+### Install
+
+```
+> npm i timer-exector -S
+```
 
 ### Extends class
 
