@@ -1,6 +1,6 @@
 {
   "name": "timer-exector",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Timer Exector Written in Typescript",
   "main": "dist/src/index.js",
   "license": "MIT License",

@@ -22,7 +22,7 @@ abstract class TimeExector {
     this.cursor = 0
     this.buffer = []
 
-    this.alive = true
+    this.alive = false
     this.stopped = false
   }
 
@@ -33,7 +33,10 @@ abstract class TimeExector {
   }
 
   start() {
-    return this.loop()
+    if (!this.alive) {
+      this.alive = true
+      return this.loop()
+    }
   }
 
   stop() {
