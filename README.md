@@ -33,7 +33,7 @@ const TimeExector = require('time-exector').default
 
 ### Extends class
 
-```
+```js
 class DemoTimeExector extends TimeExector {
   async exec(events: any[]): Promise<boolean> {
     events.forEach(event => {
@@ -46,7 +46,7 @@ class DemoTimeExector extends TimeExector {
 
 ### Create exector instance
 
-```
+```js
 const exector = new DemoTimeExector({
   maxQueueSize: 3,
   maxTimeWait: 3 * 1000,
@@ -55,13 +55,13 @@ const exector = new DemoTimeExector({
 
 ### Start the exector before your application start
 
-```
+```js
 exector.start()
 ```
 
 ### Exit the exector and wait for every events has been executed .
 
-```
+```js
 await exector.exit()
 ```
 
